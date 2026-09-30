@@ -70,7 +70,7 @@ class KalkulatorBaru extends StatelessWidget {
                     foregroundColor: Colors.white,
                   ),
                   onPressed: () => hitung((a, b) => controller.tambah(a, b)),
-                  child: const Text("+"),
+                  child: const Text("tambah"),
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
