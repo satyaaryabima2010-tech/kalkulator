@@ -7,6 +7,9 @@ class MyTextField extends StatelessWidget {
   final bool obscureText;
   final TextInputType? keyboardType;
   final List<TextInputFormatter>? inputFormatters;
+  final bool filled;
+  final Color? fillColor;
+  final IconData? prefixIcon;
 
   const MyTextField({
     super.key,
@@ -15,6 +18,9 @@ class MyTextField extends StatelessWidget {
     this.obscureText = false,
     this.keyboardType,
     this.inputFormatters,
+    this.filled = false,
+    this.fillColor,
+    this.prefixIcon,
   });
 
   @override
@@ -26,6 +32,9 @@ class MyTextField extends StatelessWidget {
       inputFormatters: inputFormatters,
       decoration: InputDecoration(
         hintText: hint,
+        filled: filled,
+        fillColor: fillColor,
+        prefixIcon: prefixIcon == null ? null : Icon(prefixIcon),
         border: const OutlineInputBorder(),
       ),
     );

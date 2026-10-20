@@ -17,6 +17,18 @@ class ConfirmRegistrationPage extends StatelessWidget {
             "Nama " + controller.nama.toString(),
             style: TextStyle(fontSize: 20, color: Colors.green),
           ),
+          Text(
+            "Alamat " + controller.alamat.toString(),
+            style: TextStyle(fontSize: 20, color: Colors.green),
+          ),
+          Text(
+            "Jenis Kelamin " + controller.jenisKelamin.toString(),
+            style: TextStyle(fontSize: 20, color: Colors.green),
+          ),
+          Text(
+            "Umur " + controller.umur.toString(),
+            style: TextStyle(fontSize: 20, color: Colors.green),
+          ),
           // others data jenis kelamin, alamat dll
           ElevatedButton(
             onPressed: () {
