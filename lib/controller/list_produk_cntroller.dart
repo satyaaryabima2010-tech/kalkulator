@@ -3,8 +3,8 @@ import 'package:flutter_application_1/models/produk_model.dart';
 import 'package:get/get.dart';
 
 class ListProdukController extends GetxController {
-
-  List<ProdukModel> ListProduk = [
+   final List<ProdukModel> dataAwal = [
+  //List<ProdukModel> ListProduk = 
     ProdukModel(namaProduk: "Indomie Goreng Biasa", harga: "6000 Rp", foto: "foto/indomie.jpg", 
      deskripsi: "Indomie Goreng Biasa adalah makanan yang populer di Indonesia. Makanan ini memiliki rasa yang lezat dan cocok untuk dinikmati kapan saja.", ),
     ProdukModel(namaProduk: "Indomie Godhog", harga: "6000 Rp", foto: "foto/indomieGodhog.jpg", 
@@ -16,5 +16,32 @@ class ListProdukController extends GetxController {
     ProdukModel(namaProduk: "Indomie Rendang", harga: "6000 Rp", foto: "foto/indomieRndg.jpg", 
      deskripsi: "Indomie Rendang adalah varian Indomie yang memiliki rasa yang kaya dan gurih. Makanan ini cocok untuk dinikmati sebagai camilan atau makanan utama.", ),
   ];
+   late final List<ProdukModel> _dataAsli = List.from(dataAwal);
 
+  final RxList<ProdukModel> ListProduk = <ProdukModel>[].obs;
+
+  @override
+  void onInit() {
+    super.onInit();
+    ListProduk.assignAll(_dataAsli);
+  }
+
+  void hapusProduk(ProdukModel produk) {
+    ListProduk.remove(produk);
+  }
+
+  Future<void> refreshProduk() async {
+    await Future.delayed(const Duration(seconds: 1));
+    ListProduk.assignAll(_dataAsli);
+  }
+  
+
+  void pulihkanProduk(ProdukModel produk, int index) {
+    if (index >= 0 && index <= ListProduk.length) {
+      ListProduk.insert(index, produk);
+    } else {
+      ListProduk.add(produk);
+    }
+  }
 }
+
